@@ -17,6 +17,8 @@ human: scripts/factory/accept.sh <id>   → guardrail diff check, check.sh, hook
 Hooks on every step → .agent-logs/<session>.jsonl
 ```
 
+📚 **Full documentation:** [docs/README.md](docs/README.md) — architecture, usage, security model, sandboxing, human checklist, reference, troubleshooting.
+
 ## What changed vs. the GitHub version
 
 | GitHub version | Local version |
