@@ -42,7 +42,8 @@ Lines starting with `#` are comments. Humans edit; agents cannot.
 | `FACTORY_POLICY_DIR` | guard.sh | Override policy directory |
 | `FACTORY_BRANCH_PREFIXES` | guard.sh | Branch prefixes allowed to commit (default `agent/`) |
 | `FACTORY_WORKTREE_ROOT` | run-task, accept | Worktree parent (default `../<repo>-worktrees`) |
-| `COPILOT_EXTRA_FLAGS` | run-task | Extra flags for autonomous runs |
+| `COPILOT_EXTRA_FLAGS` | run-task | Extra flags for autonomous runs (e.g. `--sandbox`) |
+| `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS=true` | Copilot CLI (set by run-task) | Load repository hooks in `-p` mode in an untrusted folder |
 
 ## Log format
 

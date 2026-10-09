@@ -52,7 +52,8 @@ sudo apt-get install -y git jq
 npm install -g @github/copilot      # Copilot CLI
 copilot                             # sign in, then inside the session:
 /sandbox enable                     # turn on local sandboxing (persists in settings)
-/sandbox policy                     # deny ~/.ssh and ~/.aws; keep the working directory read/write
+/sandbox config                     # turn off "Allow sandbox bypass"; don't grant ~/.ssh or ~/.aws
+/sandbox policy                     # check the effective policy
 ```
 Keep repos in the WSL filesystem (`~/code/...`), not `/mnt/c/...` — faster, and hooks run as bash.
 

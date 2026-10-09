@@ -35,7 +35,8 @@ The agent runs with broad tool permissions (`--allow-all-tools`), so safety come
 - **Shell:** the command is whitespace-normalised and matched case-insensitively against every regex in `deny-commands.txt`. A match returns `{"permissionDecision":"deny",…}`.
 - **Files:** every path-like argument (including `apply_patch` headers) is matched against `deny-paths.txt`. Plain rules block read and write (secrets); `write:` rules block writes only (guardrails, `.git/`, logs, `tasks/`).
 - **Fail-closed:** a crash or non-zero exit denies the call.
-- **Fail-open on timeout:** if the hook exceeds `timeoutSec` (15s) the call is allowed. Keep the scripts fast.
+- **Fail-open on timeout:** if the hook exceeds `timeoutSec` (15s) it is killed and the call is allowed. Keep the scripts fast.
+- **Hooks must load.** The CLI loads repository hooks in `-p` mode only for a trusted folder or with `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS=true`, which `run-task.sh` sets. If you start `copilot -p` yourself in an untrusted folder, **no guard runs**.
 - Policy files are themselves write-protected from the agent.
 - `test-hooks.sh` runs 39 assertions (allow/deny cases, stop gate, redaction). `accept.sh` runs it before every merge.
 
