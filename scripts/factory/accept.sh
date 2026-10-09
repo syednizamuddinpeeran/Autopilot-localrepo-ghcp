@@ -28,7 +28,7 @@ echo "── commits on $branch"; git log --oneline "$base..$branch"
 echo "── files changed";      git diff --stat "$base...$branch"
 
 # 1. Guardrails unchanged (local equivalent of the CI 'guardrails-unchanged' job).
-guard_changes="$(git diff --name-only "$base...$branch" -- .github/hooks .github/agents .github/skills AGENTS.md scripts/factory/check.sh scripts/factory/commands.env scripts/factory/accept.sh)"
+guard_changes="$(git diff --name-only "$base...$branch" -- .github scripts/factory tasks AGENTS.md install.sh)"
 if [[ -n "$guard_changes" && "$allow_guardrails" != "--allow-guardrails" ]]; then
   echo "Branch modifies guardrail files (review them, then re-run with --allow-guardrails):" >&2
   echo "$guard_changes" >&2
