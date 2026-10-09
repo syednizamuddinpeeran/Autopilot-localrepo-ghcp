@@ -8,7 +8,7 @@
 | `setup.sh` | run-task, accept, agents | Requires `git`, `jq`; `chmod +x` scripts; creates `.agent-logs`, `.agent-work`; runs `SETUP_CMD` |
 | `check.sh` | agents, humans, accept | Runs format → lint → typecheck → test → build; skips empty; writes `.agent-logs/.verified` hash on success. Exit 0 pass, 1 fail, 3 nothing configured |
 | `run-task.sh <id> [--watch]` | human | Validates id and committed task; creates worktree + `agent/<id>`; launches Copilot with `--agent factory` |
-| `accept.sh <id> [--allow-guardrails]` | human only | Guardrail diff, verify in branch worktree, hook self-test, confirm, `merge --no-ff` |
+| `accept.sh <id> [--allow-guardrails]` | human only | Guardrail diff (`.github/`, `scripts/factory/`, `tasks/`, `AGENTS.md`, `install.sh`), verify in branch worktree, hook self-test, confirm, `merge --no-ff` |
 | `test-hooks.sh` | human, accept | 39 assertions in a throwaway repo (guard allow/deny, stop gate, logging, redaction) |
 
 `install.sh <target> [--force]` (repo root) copies the template files into another repo.

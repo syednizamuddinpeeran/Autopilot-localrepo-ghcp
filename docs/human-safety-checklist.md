@@ -19,7 +19,7 @@ The agent is guarded, not trusted. These are the things only you can do.
 
 ## Before merging (read the diff yourself)
 - [ ] `git diff --stat main...agent/<id>` — only files the task needed.
-- [ ] **Nothing unexpected under `.github/`, `scripts/`, `AGENTS.md`, `tasks/`** (`accept.sh` does not flag `setup.sh`, `run-task.sh`, `test-hooks.sh`, `tasks/`).
+- [ ] **Nothing unexpected under `.github/`, `scripts/`, `AGENTS.md`, `tasks/`** (`accept.sh` blocks the merge if any of these changed, unless you pass `--allow-guardrails`).
 - [ ] No weakened tests: removed assertions, `skip`/`xfail`/`.only`, loosened lint config, changed thresholds.
 - [ ] No new dependencies, lockfile changes, or install scripts you did not expect.
 - [ ] No new network calls, telemetry, base64 blobs, obfuscated code, or hard-coded URLs/keys.
