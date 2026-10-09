@@ -1,5 +1,9 @@
 # Agent Factory Template — Local Repo (GitHub Copilot CLI)
 
+> **Moved:** this variant now lives in [autopilot](https://github.com/syednizamuddinpeeran/autopilot) as
+> `./install.sh <repo> --repo local` (also with `--os windows`, `--assistant claude-code`, `--cloud aws`).
+> See its `docs/local-repo.md`. This repository is kept read-only for reference and will be archived.
+
 Variant of [autopilot](https://github.com/syednizamuddinpeeran/autopilot) for repositories with **no GitHub remote**:
 no issues, pull requests, Actions, or cloud agent. A task file goes in, a reviewed local branch comes out,
 and a human merges it with one script. Copilot CLI runs with full tool permissions inside guardrails, and every action is logged.
