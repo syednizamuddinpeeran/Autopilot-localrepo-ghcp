@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Environment setup for agents (cloud setup job, local runs) and CI.
+# Environment setup for agents and humans before local runs.
 set -euo pipefail
 root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 cd "$root"
