@@ -5,7 +5,7 @@ The agent is guarded, not trusted. These are the things only you can do.
 ## Before a run
 - [ ] The base branch is clean and committed; guardrails (`.github/`, `scripts/factory/`, `AGENTS.md`) are the versions you reviewed.
 - [ ] `bash scripts/factory/test-hooks.sh` passes (39/39).
-- [ ] Copilot CLI sandbox is on (`/sandbox policy` shows home read-only, `~/.ssh` and `~/.aws` denied). See [sandboxing.md](sandboxing.md).
+- [ ] Copilot CLI sandbox is on (`/sandbox status`), `/sandbox policy` grants no `~/.ssh` or `~/.aws`, and **Allow sandbox bypass** is off. See [sandboxing.md](sandboxing.md).
 - [ ] No cloud/prod credentials in your shell environment, `~/.aws`, or the repo; no `.env` with real secrets in the repo.
 - [ ] The task file is yours. If it was pasted from an issue, email or web page, read it for hidden instructions.
 - [ ] Risk is rated honestly (`high` for auth, payments, migrations, public APIs, infra).
@@ -38,5 +38,6 @@ The agent is guarded, not trusted. These are the things only you can do.
 ## Ongoing
 - Review `deny-commands.txt` / `deny-paths.txt` when your stack changes; add project-specific dangers.
 - Keep the Copilot CLI and sandbox up to date; re-check flag names after upgrades (`copilot help permissions`).
+- Never run `copilot -p` with `--allow-all-tools` yourself in an untrusted folder without `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS=true` — the hooks would not load.
 - Delete old worktrees and logs; logs may contain sensitive command output despite redaction.
 - Remember `accept.sh` is not enforced: never merge agent branches by hand without the same checks.

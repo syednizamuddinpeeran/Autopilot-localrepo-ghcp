@@ -44,7 +44,7 @@ Tips: one outcome per task; name real files in Pointers; mark risk `high` for au
 scripts/factory/run-task.sh add-csv-export            # autonomous
 scripts/factory/run-task.sh add-csv-export --watch    # interactive; you switch to autopilot
 ```
-This creates `../<repo>-worktrees/<id>` on `agent/<id>` (or reuses it), runs `setup.sh`, and starts `copilot --agent factory`. Autonomous mode adds `--allow-all-tools` plus CLI-level denies for `git push`, `git remote`, `sudo`; extra flags via `COPILOT_EXTRA_FLAGS`. Flag names can change between CLI versions — check `copilot help permissions`.
+This creates `../<repo>-worktrees/<id>` on `agent/<id>` (or reuses it), runs `setup.sh`, and starts `copilot --agent factory`. Autonomous mode sets `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS=true` (in `-p` mode the CLI otherwise skips repository hooks in an untrusted folder, and the new worktree is untrusted) and adds `--allow-all-tools` plus CLI-level denies for `git push`, `git remote`, `sudo`; extra flags via `COPILOT_EXTRA_FLAGS`. Flag names can change between CLI versions — check `copilot help permissions`.
 
 ## 6. Review (before merging)
 

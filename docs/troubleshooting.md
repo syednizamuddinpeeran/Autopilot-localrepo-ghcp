@@ -16,5 +16,7 @@
 | Handoff is DRAFT | High risk, failed verification, or open questions | Read Risks and questions; refine the task and rerun |
 | Hooks seem not to run | Not in the repo/worktree where Copilot starts, or scripts not executable | Run `scripts/factory/setup.sh`; confirm `.github/hooks/factory.json` is present |
 | Hook slow → a call slipped through | Timeout is fail-open | Keep policy files small; avoid heavy work in hooks |
-| Sandbox blocks a legitimate write | Path outside allowed dirs | Add the path in `/sandbox` → Filesystem, or move work inside the worktree |
+| Sandbox blocks a legitimate write | Path outside allowed dirs | Add the path in `/sandbox config` → Filesystem, or move work inside the worktree |
+| `/sandbox` says unavailable on Linux/WSL | Missing `bwrap` (≥ 0.5.0), `slirp4netns` or other requirements | Install them; see [sandboxing.md](sandboxing.md#platform-requirements) |
+| No `.agent-logs`, nothing blocked | Repository hooks not loaded in `-p` mode | Use `run-task.sh` (sets `GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS=true`) or trust the folder |
 | Different results on `/mnt/c` | Slow filesystem, line endings | Use the WSL filesystem |
